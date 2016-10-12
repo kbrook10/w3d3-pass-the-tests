@@ -54,15 +54,14 @@ console.log(sliceWord('I love pizza!', 7, 12))
 //Tests to pull certain text out of the string
 console.assert(sliceWord('I love pizza!', 7, 12) === 'pizza')
 
-//<--- Skipped this question --->
-// function splitWord() {
-// }
-// console.log(splitWord('US,CA,MX,JP,UK', ','))
-// //Tests break string up and then separate with commas
-// // console.assert(splitWord('US,CA,MX,JP,UK', ',') === ['US','CA','MX','JP','UK']) --> replaced per instructor request
-// console.assert(splitWord('US,CA,MX,JP,UK', ',').length === 5)
-//<--- Skipped this question --->
-//<----------------------------->
+
+function splitWord(value, brk) {
+    return value = value.split(brk)
+}
+console.log(splitWord('US,CA,MX,JP,UK', ','))
+// console.assert(splitWord('US,CA,MX,JP,UK', ',') === ['US','CA','MX','JP','UK']) --> replaced per instructor request
+//Tests break string up and then separate with commas
+console.assert(splitWord('US,CA,MX,JP,UK', ',').length === 5)
 
 function whereIsCarmen(word, keyWord) {
     return word = word.indexOf(keyWord)
@@ -87,13 +86,14 @@ console.log(extractZipCode('My zip code was 46240.'))
 //Tests to search for numeric values in assert
 console.assert(extractZipCode('My zip code was 46240.') === '46240')
 
-//<--- Skipped this question --->
-// function isPhoneNumber() {
-// }
-// console.log(isPhoneNumber('(888) 123.1234'))
-// console.assert(isPhoneNumber('(888) 123.1234') === true)
-//<--- Skipped this question --->
-//<----------------------------->
+
+function isPhoneNumber(value) {
+    return /\(\d\d\d\)\s\d\d\d\.\d\d\d\d/.test(value)
+}
+console.log(isPhoneNumber('(888) 123.1234'))
+//Test to escape special characters and record decimals and numbers
+console.assert(isPhoneNumber('(888) 123.1234') === true)
+
 
 // Numbers
 function stringToNumber(num) {
@@ -143,14 +143,16 @@ console.assert(justAMoment().includes('day') === true)
 
 // Objects
 function myNameIs(value) {
-    return value
+    return value.name
 }
 console.log(myNameIs({name:'Your Name Here'}))
+//Test to find property name
 console.assert(myNameIs({name:'Your Name Here'}) === 'Your Name Here')
 
 // Arrays
 function getFirstItem(value) {
-    return value
+    return value[0]
 }
 console.log(getFirstItem(['Dog','Cat','Pig','Bird','Fish']))
+//Tests to utilize array for find the initial value
 console.assert(getFirstItem(['Dog','Cat','Pig','Bird','Fish']) === 'Dog')
